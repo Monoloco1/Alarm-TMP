@@ -52,18 +52,12 @@ void readKeyboard(uint16_t col) {
 	keys = 0;
 	
 	for(int i=0; i<4; i++) {
-		//PTB->PSOR |= R1_MASK | R2_MASK | R3_MASK | R4_MASK;
-		//PTB->PCOR |= rowMasks[i];
 		PTB->PSOR |= R1_MASK | R2_MASK | R3_MASK | R4_MASK;
-		__nop();__nop();__nop();__nop();__nop();__nop();
+		//__nop();__nop();__nop();__nop();__nop();__nop();
 		PTB->PDOR ^= rowMasks[i];
-		
-		//for(int i = 0; i < 300; i++)__nop();
 		
 		if( PTA->PDIR & colMasks[col] ) {
 			keys |= 1<<( i + col*4 );
-			//keys = i + 4*col;
-			//break;
 		}
 	}
 	
@@ -119,7 +113,8 @@ void readKeyboard(uint16_t col) {
 			key = '#';
 			break;
 		default:
-			key = 'X';
+			//key = 'X';
+			//PTB->PTOR |= (1<<9);
 			break;
 	}
 }

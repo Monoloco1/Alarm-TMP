@@ -27,6 +27,7 @@ void LCD1602_Init(void);
  * @param String to display.
  */
 void LCD1602_Print(char *str);
+void LCD1602_PrintNum(int number);
 /**
  * @brief Clear whole display.
  */

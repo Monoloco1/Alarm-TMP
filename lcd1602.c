@@ -9,7 +9,7 @@
  * @brief File containing definitions for LCD 2x16.
  * @ver 0.3
  */
-
+// Modified by Cristian Niwelt
 #include "lcd1602.h"
 
 /******************************************************************************\
